@@ -5,14 +5,15 @@ import styles from "../css/DungeonRow.module.css"
 type Props = {
     cards: PlayingCard[]
     remaining: number
+    onCardClick: (card: PlayingCard) => void
 }
 
-export function DungeonRow({ cards, remaining }: Props) {
+export function DungeonRow({ cards, remaining, onCardClick }: Props) {
     return (
         <div className={styles.dungeonRow}>
             <div className={styles.cards}>
                 {cards.map(card =>
-                    <CardView key={card.code} card={card} />
+                    <CardView key={card.code} card={card} onClick={()=> onCardClick(card)}/>
                 )}
 
             </div>

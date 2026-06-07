@@ -35,4 +35,6 @@ export interface GameState {
     room: PlayingCard[];
     weapon: PlayingCard | null;
     gameOver: boolean;
+    deck_id: string;
+    victory: boolean;
 }
