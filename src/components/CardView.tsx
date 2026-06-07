@@ -6,29 +6,31 @@ type Props = {
     style?: React.CSSProperties
 }
 
-export function CardView({card, onClick, style}:Props){
-    return(
-        <div className={styles.card} onClick={onClick} style={style}>
-            <img src={card.image} alt={card.code}/>
+export function CardView({ card, onClick, style }: Props) {
+    return (
+        <div className={styles.wrapper}>
+            <div className={styles.card} onClick={onClick} style={style}>
+                <img src={card.image} alt={card.code} />
+            </div>
         </div>
     )
 }
 
-export function getCardType(card: PlayingCard){
+export function getCardType(card: PlayingCard) {
     switch (card.suit) {
         case "HEARTS":
             return "heal"
-            
+
         case "DIAMONDS":
             return "weapon"
-    
+
         default:
             return "monster"
     }
 }
 
-export function getCardValue(value: CardValue): number{
-    switch(value){
+export function getCardValue(value: CardValue): number {
+    switch (value) {
         case "ACE":
             return 14
         case "KING":

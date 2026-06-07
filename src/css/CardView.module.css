@@ -1,12 +1,20 @@
 .card{
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
     animation: slideIn 0.25s ease-out both;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.card:hover{
+.wrapper{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wrapper:hover {
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+    z-index: 10;
 }
 
 @keyframes slideIn {
