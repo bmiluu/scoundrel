@@ -12,8 +12,12 @@ export function DungeonRow({ cards, remaining, onCardClick }: Props) {
     return (
         <div className={styles.dungeonRow}>
             <div className={styles.cards}>
-                {cards.map(card =>
-                    <CardView key={card.code} card={card} onClick={()=> onCardClick(card)}/>
+                {cards.map((card, index) =>
+                    <CardView 
+                    key={card.code} 
+                    card={card} 
+                    style={{ animationDelay: `${index * 80}ms` }}
+                    onClick={()=> onCardClick(card)}/>
                 )}
 
             </div>

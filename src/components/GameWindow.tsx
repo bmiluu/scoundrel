@@ -12,6 +12,7 @@ export function GameWindow(){
     const game = useMemo(()=> new GameManager(), [])
     const [state, setState] = useState<GameState>(game.createInitialState())
     const [remaining, setRemaining] = useState(0)
+    const [removing, setRemoving] = useState<string | null>(null);
 
     async function handleCardClick(card: PlayingCard){
         const type = getCardType(card)
@@ -29,10 +30,10 @@ export function GameWindow(){
                 newState = game.damage(state, getCardValue(card.value))
                 break
         }
-
         const drawResult = await drawCards(state.deck_id, 1)
 
         setRemaining(drawResult.remaining)
+
         if(game.checkWin(state, drawResult.remaining)){
             setState(prev=> ({
                 ...prev,

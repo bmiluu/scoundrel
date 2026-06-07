@@ -3,11 +3,12 @@ import styles from "../css/CardView.module.css"
 type Props = {
     card: PlayingCard
     onClick?: () => void
+    style?: React.CSSProperties
 }
 
-export function CardView({card, onClick}:Props){
+export function CardView({card, onClick, style}:Props){
     return(
-        <div className={styles.card} onClick={onClick}>
+        <div className={styles.card} onClick={onClick} style={style}>
             <img src={card.image} alt={card.code}/>
         </div>
     )
